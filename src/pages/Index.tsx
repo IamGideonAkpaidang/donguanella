@@ -9,6 +9,7 @@ import GetInvolved from "@/components/GetInvolved";
 import TestimonialSection from "@/components/TestimonialSection";
 import CentresSection from "@/components/CentresSection";
 import FinalCTA from "@/components/FinalCTA";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
@@ -23,6 +24,7 @@ const Index = () => (
     <GetInvolved />
     <TestimonialSection />
     <CentresSection />
+    <ContactSection />
     <FinalCTA />
     <Footer />
   </div>
