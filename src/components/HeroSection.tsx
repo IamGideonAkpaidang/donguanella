@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-    {/* Background with parallax-style layers */}
     <div className="absolute inset-0">
       <img
         src={heroBg}
@@ -16,12 +16,8 @@ const HeroSection = () => (
       <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent" />
     </div>
-
-    {/* Decorative elements */}
     <div className="absolute top-1/4 right-[15%] w-72 h-72 rounded-full bg-secondary/10 blur-3xl animate-float" />
     <div className="absolute bottom-1/4 left-[10%] w-96 h-96 rounded-full bg-primary-foreground/5 blur-3xl animate-float" style={{ animationDelay: '3s' }} />
-
-    {/* Content */}
     <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl">
       <div className="animate-fade-in-up">
         <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-8 text-primary-foreground/90 text-xs font-medium tracking-widest uppercase">
@@ -39,24 +35,26 @@ const HeroSection = () => (
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
+            asChild
             size="lg"
             className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-base px-10 py-7 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-500 group"
           >
-            Donate Now
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Link to="/get-involved">
+              Donate Now
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
           <Button
+            asChild
             size="lg"
             variant="outline"
             className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 text-base px-10 py-7 rounded-full backdrop-blur-sm transition-all duration-500"
           >
-            Learn More
+            <Link to="/about">Learn More</Link>
           </Button>
         </div>
       </div>
     </div>
-
-    {/* Bottom gradient fade */}
     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
   </section>
 );
