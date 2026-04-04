@@ -1,17 +1,31 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+
+const links = [
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Centres", to: "/centres" },
+  { label: "Get Involved", to: "/get-involved" },
+  { label: "Contact", to: "/contact" },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const links = ["About", "Services", "Impact", "Centres", "Contact"];
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <nav
@@ -22,29 +36,37 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#" className="font-serif text-xl font-bold tracking-tight transition-colors duration-300"
-          style={{ color: scrolled ? 'hsl(215, 60%, 28%)' : 'hsl(40, 33%, 98%)' }}>
+        <Link
+          to="/"
+          className="font-serif text-xl font-bold tracking-tight transition-colors duration-300"
+          style={{ color: scrolled ? 'hsl(215, 60%, 28%)' : 'hsl(40, 33%, 98%)' }}
+        >
           Donguanella
-        </a>
-        <div className="hidden md:flex items-center gap-10">
+        </Link>
+        <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
+            <Link
+              key={l.to}
+              to={l.to}
               className={`text-[13px] font-medium tracking-wide transition-all duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:transition-all after:duration-300 hover:after:w-full ${
-                scrolled
-                  ? "text-muted-foreground hover:text-primary after:bg-primary"
-                  : "text-primary-foreground/80 hover:text-primary-foreground after:bg-primary-foreground"
+                location.pathname === l.to
+                  ? scrolled
+                    ? "text-primary after:w-full after:bg-primary"
+                    : "text-primary-foreground after:w-full after:bg-primary-foreground"
+                  : scrolled
+                    ? "text-muted-foreground hover:text-primary after:bg-primary"
+                    : "text-primary-foreground/80 hover:text-primary-foreground after:bg-primary-foreground"
               }`}
             >
-              {l}
-            </a>
+              {l.label}
+            </Link>
           ))}
           <Button
+            asChild
             size="sm"
             className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-6 text-[13px] font-semibold shadow-md hover:shadow-lg transition-all duration-300"
           >
-            Donate
+            <Link to="/get-involved">Donate</Link>
           </Button>
         </div>
         <button
@@ -57,20 +79,22 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden glass-strong mx-4 mt-2 rounded-2xl px-6 py-4 animate-scale-in">
           {links.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
-              onClick={() => setOpen(false)}
-              className="block py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            <Link
+              key={l.to}
+              to={l.to}
+              className={`block py-3 text-sm font-medium transition-colors ${
+                location.pathname === l.to ? "text-primary" : "text-muted-foreground hover:text-primary"
+              }`}
             >
-              {l}
-            </a>
+              {l.label}
+            </Link>
           ))}
           <Button
+            asChild
             size="sm"
             className="mt-3 w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full font-semibold"
           >
-            Donate
+            <Link to="/get-involved">Donate</Link>
           </Button>
         </div>
       )}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => (
@@ -5,8 +6,8 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <div className="grid md:grid-cols-4 gap-12 mb-16">
         <div className="md:col-span-1">
-          <h3 className="font-serif text-2xl font-bold mb-4 tracking-tight">Donguanella</h3>
-          <p className="text-primary-foreground/50 text-sm leading-[1.8]">
+          <Link to="/" className="font-serif text-2xl font-bold tracking-tight block">Donguanella</Link>
+          <p className="text-primary-foreground/50 text-sm leading-[1.8] mt-4">
             Restoring dignity and transforming lives through compassionate
             rehabilitation and care.
           </p>
@@ -27,14 +28,16 @@ const Footer = () => (
             Quick Links
           </h4>
           <ul className="space-y-3 text-sm text-primary-foreground/45">
-            {["About Us", "Services", "Our Impact", "Centres"].map((l) => (
-              <li key={l}>
-                <a
-                  href={`#${l.toLowerCase().replace(/ /g, "").replace("our", "")}`}
-                  className="hover:text-primary-foreground transition-colors duration-300"
-                >
-                  {l}
-                </a>
+            {[
+              { label: "About Us", to: "/about" },
+              { label: "Services", to: "/services" },
+              { label: "Our Centres", to: "/centres" },
+              { label: "Get Involved", to: "/get-involved" },
+            ].map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="hover:text-primary-foreground transition-colors duration-300">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -44,11 +47,15 @@ const Footer = () => (
             Get Involved
           </h4>
           <ul className="space-y-3 text-sm text-primary-foreground/45">
-            {["Donate", "Volunteer", "Partner With Us"].map((l) => (
-              <li key={l}>
-                <a href="#" className="hover:text-primary-foreground transition-colors duration-300">
-                  {l}
-                </a>
+            {[
+              { label: "Donate", to: "/get-involved" },
+              { label: "Volunteer", to: "/get-involved" },
+              { label: "Contact Us", to: "/contact" },
+            ].map((l) => (
+              <li key={l.label}>
+                <Link to={l.to} className="hover:text-primary-foreground transition-colors duration-300">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
