@@ -9,6 +9,7 @@ import Services from "./pages/Services.tsx";
 import Centres from "./pages/Centres.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import Contact from "./pages/Contact.tsx";
+import Gallery from "./pages/Gallery.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
