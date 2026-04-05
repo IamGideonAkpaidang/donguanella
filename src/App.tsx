@@ -9,6 +9,7 @@ import Services from "./pages/Services.tsx";
 import Centres from "./pages/Centres.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import Contact from "./pages/Contact.tsx";
+import Gallery from "./pages/Gallery.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/centres" element={<Centres />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
