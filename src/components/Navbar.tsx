@@ -9,6 +9,7 @@ const links = [
   { label: "Centres", to: "/centres" },
   { label: "Get Involved", to: "/get-involved" },
   { label: "Gallery", to: "/gallery" },
+  { label: "Courses", to: "/lms/courses" },
   { label: "Contact", to: "/contact" },
 ];
 
