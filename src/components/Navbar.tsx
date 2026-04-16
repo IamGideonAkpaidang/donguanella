@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut, LayoutDashboard } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const links = [
   { label: "About", to: "/about" },
@@ -17,6 +18,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { user, isAdmin, signOut } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -63,6 +65,51 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
+          {user ? (
+            <>
+              <Button
+                asChild
+                size="sm"
+                variant="ghost"
+                className={`rounded-full px-4 text-[13px] font-medium transition-all duration-300 ${
+                  scrolled
+                    ? "text-primary hover:bg-primary/10"
+                    : "text-primary-foreground hover:bg-primary-foreground/10"
+                }`}
+              >
+                <Link to={isAdmin ? "/lms/admin" : "/lms/dashboard"}>
+                  <LayoutDashboard className="w-4 h-4" />
+                  {isAdmin ? "Admin" : "Dashboard"}
+                </Link>
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => signOut()}
+                className={`rounded-full px-4 text-[13px] font-medium transition-all duration-300 ${
+                  scrolled
+                    ? "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                    : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                }`}
+              >
+                <LogOut className="w-4 h-4" />
+                Sign Out
+              </Button>
+            </>
+          ) : (
+            <Button
+              asChild
+              size="sm"
+              variant="ghost"
+              className={`rounded-full px-4 text-[13px] font-medium transition-all duration-300 ${
+                scrolled
+                  ? "text-primary hover:bg-primary/10"
+                  : "text-primary-foreground hover:bg-primary-foreground/10"
+              }`}
+            >
+              <Link to="/lms/login">Sign In</Link>
+            </Button>
+          )}
           <Button
             asChild
             size="sm"
@@ -91,6 +138,31 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
+          {user ? (
+            <>
+              <Link
+                to={isAdmin ? "/lms/admin" : "/lms/dashboard"}
+                className="block py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                {isAdmin ? "Admin Dashboard" : "My Dashboard"}
+              </Link>
+              <button
+                onClick={() => signOut()}
+                className="block w-full text-left py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <div className="flex gap-2 mt-3">
+              <Button asChild size="sm" variant="outline" className="flex-1 rounded-full font-semibold">
+                <Link to="/lms/login">Sign In</Link>
+              </Button>
+              <Button asChild size="sm" variant="outline" className="flex-1 rounded-full font-semibold">
+                <Link to="/lms/register">Sign Up</Link>
+              </Button>
+            </div>
+          )}
           <Button
             asChild
             size="sm"
