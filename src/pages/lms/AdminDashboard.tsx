@@ -39,16 +39,28 @@ const AdminDashboard = () => {
     },
   });
 
+  // Helper to attach profile info (no FK between these tables and profiles)
+  const attachProfiles = async <T extends { user_id: string }>(rows: T[]) => {
+    const userIds = Array.from(new Set(rows.map((r) => r.user_id)));
+    if (userIds.length === 0) return rows.map((r) => ({ ...r, profiles: null }));
+    const { data: profs } = await supabase
+      .from("profiles")
+      .select("user_id, full_name, email")
+      .in("user_id", userIds);
+    const map = new Map((profs || []).map((p) => [p.user_id, p]));
+    return rows.map((r) => ({ ...r, profiles: map.get(r.user_id) || null }));
+  };
+
   const { data: enrollments } = useQuery({
     queryKey: ["admin-enrollments"],
     enabled: isAdmin,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("enrollments")
-        .select("*, courses(title), profiles!inner(full_name, email)")
+        .select("*, courses(title)")
         .order("enrolled_at", { ascending: false });
       if (error) throw error;
-      return data;
+      return attachProfiles(data || []);
     },
   });
 
@@ -58,10 +70,10 @@ const AdminDashboard = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("payments")
-        .select("*, courses(title), profiles!inner(full_name, email)")
+        .select("*, courses(title)")
         .order("created_at", { ascending: false });
       if (error) throw error;
-      return data;
+      return attachProfiles(data || []);
     },
   });
 
@@ -71,10 +83,10 @@ const AdminDashboard = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("certificates")
-        .select("*, courses(title), profiles!inner(full_name, email)")
+        .select("*, courses(title)")
         .order("issued_at", { ascending: false });
       if (error) throw error;
-      return data;
+      return attachProfiles(data || []);
     },
   });
 
