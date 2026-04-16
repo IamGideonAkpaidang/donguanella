@@ -7,8 +7,10 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Clock, Users, Calendar } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Courses = () => {
+  const { user } = useAuth();
   const { data: courses, isLoading } = useQuery({
     queryKey: ["published-courses"],
     queryFn: async () => {
@@ -108,12 +110,22 @@ const Courses = () => {
             </div>
           )}
 
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-4">Ready to start learning?</p>
-            <Button asChild variant="outline" size="lg">
-              <Link to="/lms/register">Create an Account</Link>
-            </Button>
-          </div>
+          {!user && (
+            <div className="text-center mt-16 glass rounded-3xl p-10 max-w-2xl mx-auto">
+              <h3 className="font-serif text-2xl font-semibold mb-3">Ready to start learning?</h3>
+              <p className="text-muted-foreground mb-6">
+                Create a free account to enrol, track your progress, and earn certificates.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button asChild size="lg" className="rounded-full px-8">
+                  <Link to="/lms/register">Create Account</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+                  <Link to="/lms/login">Sign In</Link>
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <Footer />

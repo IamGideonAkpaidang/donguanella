@@ -44,13 +44,13 @@ const Footer = () => (
         </div>
         <div>
           <h4 className="font-semibold mb-6 text-xs tracking-[0.15em] uppercase text-primary-foreground/70">
-            Get Involved
+            Learning
           </h4>
           <ul className="space-y-3 text-sm text-primary-foreground/45">
             {[
-              { label: "Donate", to: "/get-involved" },
-              { label: "Volunteer", to: "/get-involved" },
-              { label: "Contact Us", to: "/contact" },
+              { label: "Browse Courses", to: "/lms/courses" },
+              { label: "Sign In", to: "/lms/login" },
+              { label: "Create Account", to: "/lms/register" },
             ].map((l) => (
               <li key={l.label}>
                 <Link to={l.to} className="hover:text-primary-foreground transition-colors duration-300">
