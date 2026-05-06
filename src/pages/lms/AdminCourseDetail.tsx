@@ -127,6 +127,9 @@ const AdminCourseDetail = () => {
     queryClient.invalidateQueries({ queryKey: ["admin-modules", courseId] });
   };
 
+  if (loading || !isAdmin) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
   if (!course) return null;
 
   return (
