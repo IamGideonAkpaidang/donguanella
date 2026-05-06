@@ -403,6 +403,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      verify_certificate: {
+        Args: { _certificate_number: string }
+        Returns: {
+          certificate_number: string
+          course_title: string
+          issued_at: string
+          recipient_name: string
+        }[]
+      }
     }
     Enums: {
       app_role: "admin" | "student"
