@@ -48,7 +48,7 @@ const HeroSection = () => (
             asChild
             size="lg"
             variant="outline"
-            className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 text-base px-10 py-7 rounded-full backdrop-blur-sm transition-all duration-500"
+            className="bg-transparent border-2 border-secondary/60 text-primary-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary text-base px-10 py-7 rounded-full backdrop-blur-sm transition-all duration-500"
           >
             <Link to="/about">Learn More</Link>
           </Button>
