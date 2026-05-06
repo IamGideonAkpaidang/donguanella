@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 md:pt-0 md:pb-0">
     <div className="absolute inset-0">
       <img
         src={heroBg}
