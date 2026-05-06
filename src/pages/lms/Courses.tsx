@@ -27,18 +27,20 @@ const Courses = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="pt-28 pb-20">
+      <div className="bg-gradient-primary text-primary-foreground pt-32 pb-16">
+        <div className="container mx-auto px-6 text-center">
+          <p className="label-style text-secondary mb-4">Our Courses</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-gradient-gold mb-4">
+            Explore Our Programs
+          </h1>
+          <p className="text-primary-foreground/80 max-w-2xl mx-auto">
+            Enrol in our transformative courses designed to empower and build capacity.
+            All classes are conducted via Zoom for maximum accessibility.
+          </p>
+        </div>
+      </div>
+      <div className="pt-16 pb-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="label-style mb-4">Our Courses</p>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-gradient-primary mb-4">
-              Explore Our Programs
-            </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Enrol in our transformative courses designed to empower and build capacity.
-              All classes are conducted via Zoom for maximum accessibility.
-            </p>
-          </div>
 
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
