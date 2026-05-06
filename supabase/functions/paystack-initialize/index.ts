@@ -1,3 +1,5 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -14,14 +16,69 @@ Deno.serve(async (req) => {
       throw new Error('PAYSTACK_SECRET_KEY is not configured')
     }
 
-    const { email, amount, reference, metadata, callback_url } = await req.json()
+    // ---- Authenticate caller ----
+    const authHeader = req.headers.get('Authorization')
+    if (!authHeader?.startsWith('Bearer ')) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    const token = authHeader.replace('Bearer ', '')
 
-    if (!email || !amount || !reference) {
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
+    const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+
+    const supabaseAuth = createClient(supabaseUrl, anonKey, {
+      global: { headers: { Authorization: authHeader } },
+    })
+    const { data: userData, error: userErr } = await supabaseAuth.auth.getUser(token)
+    if (userErr || !userData?.user) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    const user = userData.user
+
+    const { reference, callback_url } = await req.json()
+    if (!reference || typeof reference !== 'string') {
       return new Response(
-        JSON.stringify({ error: 'Missing required fields: email, amount, reference' }),
+        JSON.stringify({ error: 'Missing required field: reference' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
+
+    // ---- Look up payment record server-side; ignore caller-supplied amount/email ----
+    const supabaseAdmin = createClient(supabaseUrl, serviceKey)
+    const { data: payment, error: payErr } = await supabaseAdmin
+      .from('payments')
+      .select('id, user_id, course_id, amount, currency, enrollment_id, status')
+      .eq('paystack_reference', reference)
+      .single()
+
+    if (payErr || !payment) {
+      return new Response(JSON.stringify({ error: 'Payment record not found' }), {
+        status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    if (payment.user_id !== user.id) {
+      return new Response(JSON.stringify({ error: 'Forbidden' }), {
+        status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    if (payment.status === 'success') {
+      return new Response(JSON.stringify({ error: 'Payment already completed' }), {
+        status: 409, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+
+    const { data: course } = await supabaseAdmin
+      .from('courses')
+      .select('title')
+      .eq('id', payment.course_id)
+      .single()
+
+    const amountKobo = Math.round(Number(payment.amount) * 100)
 
     const response = await fetch('https://api.paystack.co/transaction/initialize', {
       method: 'POST',
@@ -30,10 +87,15 @@ Deno.serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email,
-        amount, // in kobo
+        email: user.email,
+        amount: amountKobo,
         reference,
-        metadata: metadata || {},
+        metadata: {
+          course_id: payment.course_id,
+          enrollment_id: payment.enrollment_id,
+          user_id: user.id,
+          course_title: course?.title,
+        },
         callback_url: callback_url || undefined,
       }),
     })
