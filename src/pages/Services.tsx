@@ -153,7 +153,7 @@ const Services = () => (
               Get Involved <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-10 py-7">
+          <Button asChild size="lg" variant="outline" className="bg-transparent border-secondary/40 text-primary-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary rounded-full px-10 py-7 transition-all duration-500">
             <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
