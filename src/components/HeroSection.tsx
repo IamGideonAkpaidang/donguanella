@@ -20,7 +20,7 @@ const HeroSection = () => (
     <div className="absolute bottom-1/4 left-[10%] w-96 h-96 rounded-full bg-primary-foreground/5 blur-3xl animate-float" style={{ animationDelay: '3s' }} />
     <div className="relative z-10 container mx-auto px-6 text-center max-w-4xl">
       <div className="animate-fade-in-up">
-        <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-8 text-primary-foreground/90 text-xs font-medium tracking-widest uppercase">
+        <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mt-2 md:mt-0 mb-8 text-primary-foreground/90 text-xs font-medium tracking-widest uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
           Servants of Charity
         </div>
