@@ -190,7 +190,9 @@ const AdminDashboard = () => {
   const totalRevenue = payments?.filter((p) => p.status === "success").reduce((a, p) => a + Number(p.amount), 0) || 0;
   const activeStudents = enrollments?.filter((e) => e.status === "active").length || 0;
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  if (loading || !user || !isAdmin) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-background">
