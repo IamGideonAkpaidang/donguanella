@@ -1,8 +1,9 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -15,13 +16,56 @@ Deno.serve(async (req) => {
       throw new Error('PAYSTACK_SECRET_KEY is not configured')
     }
 
-    const { reference } = await req.json()
+    // ---- Authenticate caller ----
+    const authHeader = req.headers.get('Authorization')
+    if (!authHeader?.startsWith('Bearer ')) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    const token = authHeader.replace('Bearer ', '')
 
-    if (!reference) {
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
+    const anonKey = Deno.env.get('SUPABASE_ANON_KEY')!
+    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+
+    const supabaseAuth = createClient(supabaseUrl, anonKey, {
+      global: { headers: { Authorization: authHeader } },
+    })
+    const { data: userData, error: userErr } = await supabaseAuth.auth.getUser(token)
+    if (userErr || !userData?.user) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    const user = userData.user
+
+    const { reference } = await req.json()
+    if (!reference || typeof reference !== 'string') {
       return new Response(
         JSON.stringify({ error: 'Missing reference' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
+    }
+
+    const supabase = createClient(supabaseUrl, serviceKey)
+
+    // Verify caller owns this payment record
+    const { data: ownerCheck, error: ownerErr } = await supabase
+      .from('payments')
+      .select('user_id, enrollment_id')
+      .eq('paystack_reference', reference)
+      .single()
+
+    if (ownerErr || !ownerCheck) {
+      return new Response(JSON.stringify({ error: 'Payment not found' }), {
+        status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+    if (ownerCheck.user_id !== user.id) {
+      return new Response(JSON.stringify({ error: 'Forbidden' }), {
+        status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
     }
 
     // Verify with Paystack
@@ -37,12 +81,7 @@ Deno.serve(async (req) => {
       throw new Error(`Paystack verify error [${response.status}]: ${JSON.stringify(data)}`)
     }
 
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
-    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-    const supabase = createClient(supabaseUrl, supabaseServiceKey)
-
     if (data.data?.status === 'success') {
-      // Update payment status
       await supabase
         .from('payments')
         .update({
@@ -52,19 +91,11 @@ Deno.serve(async (req) => {
         })
         .eq('paystack_reference', reference)
 
-      // Get payment to find enrollment
-      const { data: payment } = await supabase
-        .from('payments')
-        .select('enrollment_id')
-        .eq('paystack_reference', reference)
-        .single()
-
-      // Activate enrollment
-      if (payment?.enrollment_id) {
+      if (ownerCheck.enrollment_id) {
         await supabase
           .from('enrollments')
           .update({ status: 'active' })
-          .eq('id', payment.enrollment_id)
+          .eq('id', ownerCheck.enrollment_id)
       }
 
       return new Response(
@@ -72,7 +103,6 @@ Deno.serve(async (req) => {
         { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     } else {
-      // Payment not successful
       await supabase
         .from('payments')
         .update({ status: 'failed', metadata: data.data })
