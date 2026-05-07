@@ -15,11 +15,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 30% 15%;
 
-    --primary: 215 60% 28%;
+    --primary: 0 70% 38%;
     --primary-foreground: 40 33% 98%;
 
-    --secondary: 40 50% 55%;
-    --secondary-foreground: 40 33% 98%;
+    --secondary: 40 55% 52%;
+    --secondary-foreground: 220 30% 12%;
 
     --muted: 40 20% 94%;
     --muted-foreground: 220 10% 46%;
@@ -32,7 +32,7 @@
 
     --border: 40 15% 88%;
     --input: 40 15% 88%;
-    --ring: 215 60% 28%;
+    --ring: 0 70% 38%;
 
     --radius: 0.75rem;
 
@@ -49,7 +49,7 @@
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
     --shadow-lg: 0 10px 25px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.03);
     --shadow-xl: 0 20px 50px -12px rgb(0 0 0 / 0.08);
-    --shadow-glow: 0 0 40px -10px hsl(215 60% 28% / 0.15);
+    --shadow-glow: 0 0 40px -10px hsl(0 70% 38% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -71,10 +71,10 @@
     --card-foreground: 40 33% 95%;
     --popover: 220 30% 12%;
     --popover-foreground: 40 33% 95%;
-    --primary: 215 50% 55%;
+    --primary: 0 65% 55%;
     --primary-foreground: 40 33% 98%;
-    --secondary: 40 50% 50%;
-    --secondary-foreground: 40 33% 98%;
+    --secondary: 40 55% 55%;
+    --secondary-foreground: 220 30% 10%;
     --muted: 220 20% 18%;
     --muted-foreground: 220 10% 60%;
     --accent: 150 30% 40%;
@@ -83,7 +83,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 220 20% 20%;
     --input: 220 20% 20%;
-    --ring: 215 50% 55%;
+    --ring: 0 65% 55%;
     --warm: 30 30% 14%;
     --warm-foreground: 30 30% 80%;
     --gold: 40 60% 50%;
@@ -137,7 +137,7 @@
     border: 1px solid hsl(var(--glass-border));
   }
   .text-gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(215 50% 42%));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(0 60% 25%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -152,7 +152,7 @@
     background: linear-gradient(180deg, hsl(var(--warm)) 0%, hsl(var(--background)) 100%);
   }
   .bg-gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(215 45% 22%) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(0 60% 22%) 100%);
   }
   .bg-gradient-subtle {
     background: linear-gradient(180deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
