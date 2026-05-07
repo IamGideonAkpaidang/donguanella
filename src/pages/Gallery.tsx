@@ -3,22 +3,26 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { X, ZoomIn } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import img1 from "@/assets/gallery/img1.jpg";
+import img2 from "@/assets/gallery/img2.jpg";
+import img3 from "@/assets/gallery/img3.jpg";
+import img4 from "@/assets/gallery/img4.jpg";
+import img5 from "@/assets/gallery/img5.jpg";
+import img6 from "@/assets/gallery/img6.jpg";
+import img7 from "@/assets/gallery/img7.jpg";
+import img8 from "@/assets/gallery/img8.jpg";
 
 const categories = ["All", "Centres", "Children", "Activities", "Events"] as const;
 
 const galleryItems = [
-  { src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80", title: "Learning Together", category: "Children", desc: "Children engaged in collaborative learning at our Owerri centre." },
-  { src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80", title: "Classroom Session", category: "Activities", desc: "An interactive classroom session focused on cognitive development." },
-  { src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80", title: "Nnebukwu Centre", category: "Centres", desc: "The Don Guanella Rehabilitation Centre, Nnebukwu — our first and largest facility." },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80", title: "Community Outreach", category: "Events", desc: "Annual community awareness event promoting inclusion and dignity." },
-  { src: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=800&q=80", title: "Creative Arts Therapy", category: "Activities", desc: "Art-based therapy sessions that spark creativity and self-expression." },
-  { src: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&q=80", title: "Joyful Moments", category: "Children", desc: "Moments of pure joy during recreational time at our centres." },
-  { src: "https://images.unsplash.com/photo-1523050854058-8df90110c476?w=800&q=80", title: "Abuja Centre", category: "Centres", desc: "Our Don Guanella Centre in the heart of Abuja, FCT." },
-  { src: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80", title: "Spiritual Formation", category: "Events", desc: "Chapel gathering for spiritual growth and communal prayer." },
-  { src: "https://images.unsplash.com/photo-1587654780292-39c6c1b3583c?w=800&q=80", title: "Physical Therapy", category: "Activities", desc: "Guided physiotherapy sessions to improve mobility and motor skills." },
-  { src: "https://images.unsplash.com/photo-1560541919-eb5c3a31b01c?w=800&q=80", title: "Ibadan Centre", category: "Centres", desc: "Don Guanella Centre, Ibadan — expanding our reach in South-West Nigeria." },
-  { src: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=800&q=80", title: "Outdoor Play", category: "Children", desc: "Children enjoying supervised outdoor play and social interaction." },
-  { src: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80", title: "Annual Conference", category: "Events", desc: "Training conference for caregivers and special education professionals." },
+  { src: img1, title: "Moments of Care", category: "Children", desc: "Caregivers and children sharing a moment at our rehabilitation centre." },
+  { src: img2, title: "Daily Life", category: "Activities", desc: "Everyday activities that nurture growth and dignity." },
+  { src: img3, title: "Together in Learning", category: "Activities", desc: "Engaged learning sessions tailored to each child's needs." },
+  { src: img4, title: "Joyful Smiles", category: "Children", desc: "Bright smiles that capture the spirit of our community." },
+  { src: img5, title: "Community Gathering", category: "Events", desc: "A gathering that celebrates inclusion and belonging." },
+  { src: img6, title: "Inside Our Centre", category: "Centres", desc: "A glimpse inside one of our rehabilitation facilities." },
+  { src: img7, title: "Centre Life", category: "Centres", desc: "Daily life at our Don Guanella centre." },
+  { src: img8, title: "Hope in Action", category: "Events", desc: "Outreach moments that bring hope to children and families." },
 ];
 
 const Gallery = () => {
