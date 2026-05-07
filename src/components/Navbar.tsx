@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, LogOut, LayoutDashboard } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import logo from "@/assets/logo.png";
 
 const links = [
   { label: "About", to: "/about" },
@@ -42,10 +43,11 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-6">
         <Link
           to="/"
-          className="font-serif text-xl font-bold tracking-tight transition-colors duration-300"
-          style={{ color: scrolled ? 'hsl(215, 60%, 28%)' : 'hsl(40, 33%, 98%)' }}
+          className="flex items-center gap-3 font-serif text-xl font-bold tracking-tight transition-colors duration-300"
+          style={{ color: scrolled ? 'hsl(0, 70%, 38%)' : 'hsl(40, 33%, 98%)' }}
         >
-          Donguanella
+          <img src={logo} alt="Donguanella logo" className="h-10 w-10 object-contain" />
+          <span>Donguanella</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (

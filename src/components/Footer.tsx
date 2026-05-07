@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground pt-20 pb-10">
     <div className="container mx-auto px-6">
       <div className="grid md:grid-cols-4 gap-12 mb-16">
         <div className="md:col-span-1">
-          <Link to="/" className="font-serif text-2xl font-bold tracking-tight block">Donguanella</Link>
+          <Link to="/" className="flex items-center gap-3 font-serif text-2xl font-bold tracking-tight">
+            <img src={logo} alt="Donguanella logo" className="h-10 w-10 object-contain bg-primary-foreground/95 rounded-lg p-1" />
+            <span>Donguanella</span>
+          </Link>
           <p className="text-primary-foreground/50 text-sm leading-[1.8] mt-4">
             Restoring dignity and transforming lives through compassionate
             rehabilitation and care.
