@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { X, ZoomIn } from "lucide-react";
+import { ZoomIn } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import img1 from "@/assets/gallery/img1.jpg";
 import img2 from "@/assets/gallery/img2.jpg";
@@ -11,6 +11,9 @@ import img5 from "@/assets/gallery/img5.jpg";
 import img6 from "@/assets/gallery/img6.jpg";
 import img7 from "@/assets/gallery/img7.jpg";
 import img8 from "@/assets/gallery/img8.jpg";
+import img9 from "@/assets/gallery/img9.jpg";
+import img10 from "@/assets/gallery/img10.jpg";
+import img11 from "@/assets/gallery/img11.jpg";
 
 const categories = ["All", "Centres", "Children", "Activities", "Events"] as const;
 
@@ -23,6 +26,9 @@ const galleryItems = [
   { src: img6, title: "Inside Our Centre", category: "Centres", desc: "A glimpse inside one of our rehabilitation facilities." },
   { src: img7, title: "Centre Life", category: "Centres", desc: "Daily life at our Don Guanella centre." },
   { src: img8, title: "Hope in Action", category: "Events", desc: "Outreach moments that bring hope to children and families." },
+  { src: img9, title: "Caring Hands", category: "Children", desc: "Compassionate care given to every child in our centre." },
+  { src: img10, title: "Shared Joy", category: "Activities", desc: "Bonding through shared activities and play." },
+  { src: img11, title: "Our Community", category: "Events", desc: "Coming together as one Don Guanella family." },
 ];
 
 const Gallery = () => {
