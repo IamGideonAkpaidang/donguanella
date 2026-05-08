@@ -4,17 +4,22 @@ import { Button } from "@/components/ui/button";
 import {
   Heart, GraduationCap, Sprout, Brain, Stethoscope,
   Target, Shield, Lightbulb, Smile, Users, Ear, ArrowRight,
-  Activity
+  Activity, Home, HandHeart, Baby, UserRound
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const services = [
+const childrenServices = [
   { icon: Stethoscope, title: "Rehabilitation & Therapy", desc: "Comprehensive physiotherapy and rehabilitation programs tailored to each child's needs." },
   { icon: GraduationCap, title: "Special Education", desc: "Specialized educational programs designed for children with various learning disabilities." },
   { icon: Sprout, title: "Vocational Training", desc: "Agricultural activities including poultry, fishery, piggery, bakery, garri production, and crop farming as occupational therapy." },
   { icon: Brain, title: "Occupational Therapy", desc: "Developing independence through practical daily living skills and activities." },
   { icon: Ear, title: "Speech Therapy", desc: "Specialized speech and language therapy to improve communication abilities." },
   { icon: Activity, title: "Day-Care & Boarding", desc: "Both boarding and day-care rehabilitative assistance programs for flexible care." },
+];
+
+const elderlyServices = [
+  { icon: Home, title: "Residential Care & Shelter", desc: "A safe, dignified home for elderly persons in need — providing comfort, security, and round-the-clock attentive care." },
+  { icon: HandHeart, title: "Spiritual & Pastoral Care", desc: "Compassionate pastoral accompaniment, prayer, and counselling that nurtures faith, peace, and dignity in their later years." },
 ];
 
 const categories = [
@@ -57,21 +62,36 @@ const Services = () => (
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
     </section>
 
-    {/* What We Do */}
+    {/* Apostolate Intro */}
     <section className="section-padding bg-background relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[120px]" />
       <div className="container mx-auto px-6 relative">
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="label-style">Rehabilitation Services</span>
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="label-style">Our Apostolate</span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 tracking-tight">
-            How We <span className="text-gradient-gold">Help</span>
+            Two Pillars of <span className="text-gradient-gold">Compassionate Care</span>
           </h2>
           <p className="text-muted-foreground mt-6 leading-[1.8]">
-            Every child is valued. We care about children's early years rehabilitation and know that getting it right is crucial in providing the building blocks for their future.
+            Our apostolate extends beyond children with special needs. We are equally committed to walking with the elderly — restoring dignity at every stage of life.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s, i) => (
+      </div>
+    </section>
+
+    {/* Services to Children */}
+    <section className="pb-20 md:pb-28 bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 relative">
+        <div className="flex items-center gap-3 mb-10 max-w-5xl mx-auto">
+          <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <Baby className="w-6 h-6 text-primary" />
+          </div>
+          <div>
+            <span className="label-style">Pillar I</span>
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground tracking-tight">Services to the Children</h3>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {childrenServices.map((s, i) => (
             <div
               key={s.title}
               className="group bg-card rounded-3xl p-8 border border-border/50 hover-lift"
@@ -79,6 +99,37 @@ const Services = () => (
             >
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                 <s.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-3 tracking-tight">{s.title}</h3>
+              <p className="text-muted-foreground text-sm leading-[1.8]">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Services to Elderly */}
+    <section className="pb-20 md:pb-28 bg-background relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-secondary/5 blur-[120px]" />
+      <div className="container mx-auto px-6 relative">
+        <div className="flex items-center gap-3 mb-10 max-w-5xl mx-auto">
+          <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
+            <UserRound className="w-6 h-6 text-secondary" />
+          </div>
+          <div>
+            <span className="label-style">Pillar II</span>
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground tracking-tight">Services to the Elderly</h3>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {elderlyServices.map((s, i) => (
+            <div
+              key={s.title}
+              className="group bg-card rounded-3xl p-8 border border-border/50 hover-lift"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <s.icon className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-serif text-xl font-semibold text-foreground mb-3 tracking-tight">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-[1.8]">{s.desc}</p>
