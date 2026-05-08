@@ -4,17 +4,22 @@ import { Button } from "@/components/ui/button";
 import {
   Heart, GraduationCap, Sprout, Brain, Stethoscope,
   Target, Shield, Lightbulb, Smile, Users, Ear, ArrowRight,
-  Activity
+  Activity, Home, HandHeart, Baby, UserRound
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const services = [
+const childrenServices = [
   { icon: Stethoscope, title: "Rehabilitation & Therapy", desc: "Comprehensive physiotherapy and rehabilitation programs tailored to each child's needs." },
   { icon: GraduationCap, title: "Special Education", desc: "Specialized educational programs designed for children with various learning disabilities." },
   { icon: Sprout, title: "Vocational Training", desc: "Agricultural activities including poultry, fishery, piggery, bakery, garri production, and crop farming as occupational therapy." },
   { icon: Brain, title: "Occupational Therapy", desc: "Developing independence through practical daily living skills and activities." },
   { icon: Ear, title: "Speech Therapy", desc: "Specialized speech and language therapy to improve communication abilities." },
   { icon: Activity, title: "Day-Care & Boarding", desc: "Both boarding and day-care rehabilitative assistance programs for flexible care." },
+];
+
+const elderlyServices = [
+  { icon: Home, title: "Residential Care & Shelter", desc: "A safe, dignified home for elderly persons in need — providing comfort, security, and round-the-clock attentive care." },
+  { icon: HandHeart, title: "Spiritual & Pastoral Care", desc: "Compassionate pastoral accompaniment, prayer, and counselling that nurtures faith, peace, and dignity in their later years." },
 ];
 
 const categories = [
