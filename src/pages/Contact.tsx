@@ -128,7 +128,9 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                    +234 8164776544
+                    <a href="tel:+2348164776544" className="hover:text-primary transition-colors">+234 816 477 6544</a>
+                    <span className="text-muted-foreground/40">·</span>
+                    <a href="sms:+2348164776544" className="hover:text-primary transition-colors">Text</a>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Mail className="w-4 h-4 text-primary flex-shrink-0" />
@@ -161,7 +163,9 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                    {c.phone}
+                    <a href={`tel:${c.phone.replace(/\s+/g, "")}`} className="hover:text-primary transition-colors">{c.phone}</a>
+                    <span className="text-muted-foreground/40">·</span>
+                    <a href={`sms:${c.phone.replace(/\s+/g, "")}`} className="hover:text-primary transition-colors">Text</a>
                   </div>
                 </div>
               </div>
