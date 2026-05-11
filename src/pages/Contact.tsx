@@ -120,14 +120,19 @@ const Contact = () => {
               </div>
               <div className="bg-card rounded-3xl p-8 border border-border/50">
                 <h3 className="font-serif text-xl font-bold text-foreground mb-2 tracking-tight">General Enquiries</h3>
+                <p className="text-xs text-muted-foreground mb-4">Head Office — Abuja</p>
                 <div className="space-y-3 mt-4">
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                    info@donguanella.org
+                  <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    House 52, Sector F, First Avenue F.H.A Lugbe, Opposite Prognosy Supermarket, Airport Road, FCT Abuja, Nigeria
                   </div>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                    +234 800 000 0000
+                    +234 8164776544
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                    info@donguanella.org
                   </div>
                 </div>
               </div>
