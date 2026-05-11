@@ -130,13 +130,13 @@ const ContactSection = () => {
                 <div className="w-9 h-9 rounded-xl bg-gold-light flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 text-secondary" />
                 </div>
-                <span className="text-xs">+234 800 000 0000</span>
+                <span className="text-xs">+234 8164776544</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <div className="w-9 h-9 rounded-xl bg-gold-light flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-4 h-4 text-secondary" />
                 </div>
-                <span className="text-xs">Lagos, Nigeria</span>
+                <span className="text-xs">Lugbe, Abuja, Nigeria</span>
               </div>
             </div>
           </div>
