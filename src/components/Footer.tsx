@@ -79,13 +79,13 @@ const Footer = () => (
               <div className="w-8 h-8 rounded-lg bg-primary-foreground/5 flex items-center justify-center flex-shrink-0">
                 <Phone className="w-3.5 h-3.5" />
               </div>
-              +234 800 000 0000
+              +234 8164776544
             </li>
-            <li className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-primary-foreground/5 flex items-center justify-center flex-shrink-0">
+            <li className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-primary-foreground/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <MapPin className="w-3.5 h-3.5" />
               </div>
-              Lagos, Nigeria
+              <span className="leading-relaxed">House 52, Sector F, First Avenue F.H.A Lugbe, Airport Road, FCT Abuja, Nigeria</span>
             </li>
           </ul>
         </div>
