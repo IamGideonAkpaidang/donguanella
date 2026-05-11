@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 const centres = [
   { name: "Don Guanella Centre Nnebukwu", address: "P.O. Box 94, Orsu Obodo 473002, Oguta L.G.A, Imo State", phone: "+234 7036559953" },
   { name: "Our Lady of Providence, Owerri", address: "Plot D7 141/146, Industrial Layout, Owerri, Imo State", phone: "+234 8123853326" },
-  { name: "Don Guanella Centre Abuja", address: "House 52, Sector F, First Avenue F.H.A Lugbe, FCT Abuja", phone: "+234 8164776544" },
+  { name: "Don Guanella Centre Abuja (Head Office)", address: "House 52, Sector F, First Avenue F.H.A Lugbe, Opposite Prognosy Supermarket, Airport Road, FCT Abuja, Nigeria", phone: "+234 8164776544" },
   { name: "St. Louis Guanella Centre, Ibadan", address: "Olukitbi Village, Moniya, Akinyele L.G.A, Ibadan, Oyo State", phone: "+234 7084338715" },
 ];
 
