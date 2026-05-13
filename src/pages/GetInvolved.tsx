@@ -79,6 +79,45 @@ const GetInvolvedPage = () => (
       </div>
     </section>
 
+    {/* Donation Account Details */}
+    <section className="py-20 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[120px]" />
+      <div className="container mx-auto px-6 relative">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="label-style">Donate Directly</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 tracking-tight">
+              Bank <span className="text-gradient-gold">Account Details</span>
+            </h2>
+            <p className="text-muted-foreground mt-4 leading-relaxed">
+              Support our mission through a direct bank transfer.
+            </p>
+          </div>
+          <div className="bg-card rounded-3xl p-10 border border-border/50 shadow-lg">
+            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-border/50">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Building2 className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">Account for the public</p>
+                <p className="font-serif text-lg font-semibold text-foreground">Congregation of Servants of Charity Abuja</p>
+              </div>
+            </div>
+            <dl className="space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <dt className="text-sm uppercase tracking-wider text-muted-foreground">Account Number</dt>
+                <dd className="font-mono text-xl font-bold text-foreground tracking-wider">1310602281</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4">
+                <dt className="text-sm uppercase tracking-wider text-muted-foreground">Bank</dt>
+                <dd className="font-semibold text-foreground">Zenith Bank Plc</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* Celebrate with Children */}
     <section className="py-20 bg-gradient-warm relative overflow-hidden">
       <div className="container mx-auto px-6 relative">
