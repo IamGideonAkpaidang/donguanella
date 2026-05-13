@@ -3,9 +3,6 @@ import { MapPin } from "lucide-react";
 const centres = [
   { name: "Lagos Centre", location: "Lagos, Nigeria", established: "1998" },
   { name: "Abuja Centre", location: "Abuja, Nigeria", established: "2003" },
-  { name: "Enugu Centre", location: "Enugu, Nigeria", established: "2005" },
-  { name: "Calabar Centre", location: "Calabar, Nigeria", established: "2008" },
-  { name: "Jos Centre", location: "Jos, Nigeria", established: "2012" },
   { name: "Owerri Centre", location: "Owerri, Nigeria", established: "2016" },
 ];
 

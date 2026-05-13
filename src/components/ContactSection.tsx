@@ -9,9 +9,6 @@ import { useToast } from "@/hooks/use-toast";
 const centres = [
   { name: "Lagos", coords: "6.5244,3.3792" },
   { name: "Abuja", coords: "9.0579,7.4951" },
-  { name: "Enugu", coords: "6.4584,7.5464" },
-  { name: "Calabar", coords: "4.9517,8.3220" },
-  { name: "Jos", coords: "9.8965,8.8583" },
   { name: "Owerri", coords: "5.4836,7.0333" },
 ];
 
@@ -141,19 +138,9 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Map + Locations */}
+          {/* Locations */}
           <div className="flex flex-col gap-6">
-            <div className="rounded-3xl overflow-hidden border border-border/50 shadow-elegant flex-1 min-h-[320px]">
-              <iframe
-                title="Don Guannella Centre Locations"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=2.5,4.0,10.0,10.5&layer=mapnik"
-                className="w-full h-full min-h-[320px]"
-                style={{ border: 0 }}
-                loading="lazy"
-              />
-            </div>
-
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {centres.map((c) => (
                 <div
                   key={c.name}
