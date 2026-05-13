@@ -11,7 +11,7 @@ const AboutSection = () => (
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-8 leading-[1.05] tracking-tight">
             A Mission Rooted
             <br />
-            in <span className="text-gradient-gold">Compassion</span>
+            in <span className="text-gradient-gold">Compassion and </span>
           </h2>
           <p className="text-muted-foreground text-lg leading-[1.8] mb-6">
             Donguanella Rehabilitation Centres is a faith-based organization
