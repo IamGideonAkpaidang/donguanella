@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
   Heart, Users, Handshake, ArrowRight, Calendar,
-  Megaphone, BookOpen, GraduationCap, Globe
+  Megaphone, BookOpen, GraduationCap, Globe, Building2
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
