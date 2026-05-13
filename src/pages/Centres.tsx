@@ -108,28 +108,6 @@ const Centres = () => (
       </div>
     </section>
 
-    {/* Map */}
-    <section className="py-20 bg-gradient-warm relative overflow-hidden">
-      <div className="container mx-auto px-6 relative">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="label-style">Locations</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 tracking-tight">
-            Across <span className="text-gradient-gold">Nigeria</span>
-          </h2>
-        </div>
-        <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-border/50 shadow-elegant">
-          <iframe
-            title="Don Guanella Centres in Nigeria"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=2.5%2C5.5%2C10.5%2C10.5&layer=mapnik"
-            width="100%"
-            height="450"
-            className="w-full"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-
     {/* Africa Expansion */}
     <section className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 relative">

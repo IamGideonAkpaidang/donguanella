@@ -106,18 +106,8 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Map */}
+            {/* Info */}
             <div className="space-y-8">
-              <div className="rounded-3xl overflow-hidden border border-border/50 shadow-elegant">
-                <iframe
-                  title="Don Guanella Centres in Nigeria"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=2.5%2C5.5%2C10.5%2C10.5&layer=mapnik"
-                  width="100%"
-                  height="350"
-                  className="w-full"
-                  loading="lazy"
-                />
-              </div>
               <div className="bg-card rounded-3xl p-8 border border-border/50">
                 <h3 className="font-serif text-xl font-bold text-foreground mb-2 tracking-tight">General Enquiries</h3>
                 <p className="text-xs text-muted-foreground mb-4">Head Office — Abuja</p>

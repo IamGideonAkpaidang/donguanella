@@ -8,7 +8,7 @@ const HeroSection = () => (
     <div className="absolute inset-0">
       <img
         src={heroBg}
-        alt="Children receiving compassionate care at Donguanella"
+        alt="Children receiving compassionate care at Don Guannella"
         width={1920}
         height={1080}
         className="w-full h-full object-cover scale-105"
