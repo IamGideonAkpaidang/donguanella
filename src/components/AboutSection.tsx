@@ -14,7 +14,7 @@ const AboutSection = () => (
             in <span className="text-gradient-gold">Compassion and </span>
           </h2>
           <p className="text-muted-foreground text-lg leading-[1.8] mb-6">
-            Donguanella Rehabilitation Centres is a faith-based organization
+            Don Guannella Rehabilitation Centres is a faith-based organization
             inspired by the mission of the Servants of Charity. We provide
             holistic care, rehabilitation, and education for children and young
             persons with disabilities including Down syndrome, autism, cerebral
@@ -48,7 +48,7 @@ const AboutSection = () => (
           <div className="relative rounded-3xl overflow-hidden shadow-xl">
             <img
               src={impact1}
-              alt="Child receiving therapy at Donguanella"
+              alt="Child receiving therapy at Don Guannella"
               width={800}
               height={600}
               loading="lazy"

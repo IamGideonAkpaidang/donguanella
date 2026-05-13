@@ -89,7 +89,7 @@ const Dashboard = () => {
       <div className="bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto px-6 py-6 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link to="/" className="font-serif text-xl font-bold">Donguanella</Link>
+            <Link to="/" className="font-serif text-xl font-bold">Don Guannella</Link>
             <span className="text-primary-foreground/50">|</span>
             <span className="text-sm text-primary-foreground/70">Learning Portal</span>
           </div>

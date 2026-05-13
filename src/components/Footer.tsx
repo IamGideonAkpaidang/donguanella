@@ -8,8 +8,8 @@ const Footer = () => (
       <div className="grid md:grid-cols-4 gap-12 mb-16">
         <div className="md:col-span-1">
           <Link to="/" className="flex items-center gap-3 font-serif text-2xl font-bold tracking-tight">
-            <img src={logo} alt="Donguanella logo" className="h-10 w-10 object-contain bg-primary-foreground/95 rounded-lg p-1" />
-            <span>Donguanella</span>
+            <img src={logo} alt="Don Guannella logo" className="h-10 w-10 object-contain bg-primary-foreground/95 rounded-lg p-1" />
+            <span>Don Guannella</span>
           </Link>
           <p className="text-primary-foreground/50 text-sm leading-[1.8] mt-4">
             Restoring dignity and transforming lives through compassionate
@@ -93,7 +93,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-primary-foreground/30">
-        <span>© {new Date().getFullYear()} Donguanella Rehabilitation Centres. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Don Guannella Rehabilitation Centres. All rights reserved.</span>
         <div className="flex gap-6">
           <a href="#" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-primary-foreground/60 transition-colors">Terms of Service</a>

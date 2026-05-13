@@ -34,7 +34,7 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-warm flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="font-serif text-2xl font-bold text-primary">Donguanella</Link>
+          <Link to="/" className="font-serif text-2xl font-bold text-primary">Don Guannella</Link>
           <p className="text-muted-foreground mt-2">Learning Management System</p>
         </div>
         <Card className="shadow-elegant border-border/50">

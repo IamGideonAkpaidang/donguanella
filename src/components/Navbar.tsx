@@ -46,8 +46,8 @@ const Navbar = () => {
           className="flex items-center gap-3 font-serif text-xl font-bold tracking-tight transition-colors duration-300"
           style={{ color: scrolled ? 'hsl(0, 70%, 38%)' : 'hsl(40, 33%, 98%)' }}
         >
-          <img src={logo} alt="Donguanella logo" className="h-10 w-10 object-contain" />
-          <span>Donguanella</span>
+          <img src={logo} alt="Don Guannella logo" className="h-10 w-10 object-contain" />
+          <span>Don Guannella</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (

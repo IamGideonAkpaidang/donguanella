@@ -6,7 +6,7 @@ const testimonials = [
   {
     image: impact2,
     alt: "Children learning in a special education classroom",
-    quote: "Since joining Donguanella, my son has learned to communicate, make friends, and smile every day. They gave our family hope.",
+    quote: "Since joining Don Guannella, my son has learned to communicate, make friends, and smile every day. They gave our family hope.",
     author: "A grateful parent",
   },
   {

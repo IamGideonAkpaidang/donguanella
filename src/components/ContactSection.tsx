@@ -145,7 +145,7 @@ const ContactSection = () => {
           <div className="flex flex-col gap-6">
             <div className="rounded-3xl overflow-hidden border border-border/50 shadow-elegant flex-1 min-h-[320px]">
               <iframe
-                title="Donguanella Centre Locations"
+                title="Don Guannella Centre Locations"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=2.5,4.0,10.0,10.5&layer=mapnik"
                 className="w-full h-full min-h-[320px]"
                 style={{ border: 0 }}
