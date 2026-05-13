@@ -15,7 +15,7 @@ const AboutSection = () => (
           </h2>
           <p className="text-muted-foreground text-lg leading-[1.8] mb-6">
             Don Guannella Rehabilitation Centres is a faith-based organization
-            inspired by the mission of the Servants of Charity. We provide
+            inspired by the spirit and charism of the servants of charity. We provide
             holistic care, rehabilitation, and education for children and young
             persons with disabilities including Down syndrome, autism, cerebral
             palsy, and intellectual disabilities.
