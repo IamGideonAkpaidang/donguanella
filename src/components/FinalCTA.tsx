@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FinalCTA = () => (
   <section className="section-padding bg-gradient-primary text-primary-foreground relative overflow-hidden">
@@ -24,18 +25,22 @@ const FinalCTA = () => (
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Button
+          asChild
           size="lg"
           className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-base px-10 py-7 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-500 group"
         >
-          Donate Now
-          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          <Link to="/get-involved">
+            Donate Now
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </Button>
         <Button
+          asChild
           size="lg"
           variant="outline"
           className="bg-transparent border-secondary/40 text-primary-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary text-base px-10 py-7 rounded-full backdrop-blur-sm transition-all duration-500"
         >
-          Contact Us
+          <Link to="/contact">Contact Us</Link>
         </Button>
       </div>
     </div>

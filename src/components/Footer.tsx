@@ -16,15 +16,12 @@ const Footer = () => (
             rehabilitation and care.
           </p>
           <div className="flex gap-3 mt-6">
-            {["Facebook", "Twitter", "Instagram"].map((s) => (
-              <a
-                key={s}
-                href="#"
-                className="w-9 h-9 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10 flex items-center justify-center text-xs text-primary-foreground/50 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all duration-300"
-              >
-                {s[0]}
-              </a>
-            ))}
+            <a
+              href="mailto:info@donguanella.org"
+              className="inline-flex items-center gap-2 px-4 h-9 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10 text-xs text-primary-foreground/60 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all duration-300"
+            >
+              <Mail className="w-3.5 h-3.5" /> Email Us
+            </a>
           </div>
         </div>
         <div>
@@ -94,10 +91,9 @@ const Footer = () => (
       </div>
       <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-primary-foreground/30">
         <span>© {new Date().getFullYear()} Don Guannella Rehabilitation Centres. All rights reserved.</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Terms of Service</a>
-        </div>
+        <Link to="/contact" className="hover:text-primary-foreground/60 transition-colors">
+          Contact
+        </Link>
       </div>
     </div>
   </footer>

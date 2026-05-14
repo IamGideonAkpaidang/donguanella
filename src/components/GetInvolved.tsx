@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Handshake, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ways = [
   {
@@ -8,6 +9,7 @@ const ways = [
     description: "Your financial support provides therapy, education, and care for children in need.",
     cta: "Give Today",
     accent: "primary",
+    href: "/get-involved",
   },
   {
     icon: Users,
@@ -15,6 +17,7 @@ const ways = [
     description: "Share your time and skills to make a direct impact in a child's life.",
     cta: "Join Us",
     accent: "accent",
+    href: "/contact",
   },
   {
     icon: Handshake,
@@ -22,6 +25,7 @@ const ways = [
     description: "Collaborate with us as an organization to expand our reach and deepen our impact.",
     cta: "Get in Touch",
     accent: "secondary",
+    href: "/contact",
   },
 ];
 
@@ -53,11 +57,14 @@ const GetInvolved = () => (
               {w.description}
             </p>
             <Button
+              asChild
               variant="outline"
               className="rounded-full border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 group/btn"
             >
-              {w.cta}
-              <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+              <Link to={w.href}>
+                {w.cta}
+                <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
             </Button>
           </div>
         ))}
