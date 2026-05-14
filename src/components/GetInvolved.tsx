@@ -57,11 +57,14 @@ const GetInvolved = () => (
               {w.description}
             </p>
             <Button
+              asChild
               variant="outline"
               className="rounded-full border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 group/btn"
             >
-              {w.cta}
-              <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+              <Link to={w.href}>
+                {w.cta}
+                <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
             </Button>
           </div>
         ))}
