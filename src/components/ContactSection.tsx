@@ -7,9 +7,10 @@ import { Mail, Phone, MapPin, Send, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const centres = [
-  { name: "Lagos", coords: "6.5244,3.3792" },
-  { name: "Abuja", coords: "9.0579,7.4951" },
-  { name: "Owerri", coords: "5.4836,7.0333" },
+  { name: "Abuja — Head Office", address: "House 52, Sector F, F.H.A Lugbe, FCT", phone: "+234 816 477 6544" },
+  { name: "Owerri Centre", address: "Plot D7 141/146, Industrial Layout, Imo State", phone: "+234 812 385 3326" },
+  { name: "Ibadan Centre", address: "Olukitbi Village, Moniya, Akinyele L.G.A, Oyo State", phone: "+234 708 433 8715" },
+  { name: "Lagos Centre", address: "Lagos State, Nigeria", phone: "+234 816 477 6544" },
 ];
 
 const ContactSection = () => {
@@ -139,19 +140,44 @@ const ContactSection = () => {
           </div>
 
           {/* Locations */}
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="bg-card rounded-3xl p-8 md:p-10 border border-border/50 shadow-elegant flex flex-col">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="font-serif text-xl font-semibold text-foreground tracking-tight">
+                Visit a Centre
+              </h3>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-secondary/80 font-semibold">
+                4 Locations
+              </span>
+            </div>
+
+            <ul className="space-y-4 flex-1">
               {centres.map((c) => (
-                <div
+                <li
                   key={c.name}
-                  className="flex items-center gap-3 bg-card rounded-2xl p-4 border border-border/50 hover:border-secondary/30 transition-colors duration-300"
+                  className="group flex items-start gap-4 rounded-2xl p-4 border border-border/50 bg-muted/40 hover:bg-card hover:border-secondary/40 transition-all duration-300"
                 >
-                  <div className="w-8 h-8 rounded-xl bg-gold-light flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-3.5 h-3.5 text-secondary" />
+                  <div className="w-10 h-10 rounded-xl bg-gold-light flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                    <MapPin className="w-4 h-4 text-secondary" />
                   </div>
-                  <p className="text-sm font-medium text-foreground">{c.name}</p>
-                </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-foreground tracking-tight">{c.name}</p>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{c.address}</p>
+                    <a
+                      href={`tel:${c.phone.replace(/\s/g, "")}`}
+                      className="inline-flex items-center gap-1.5 text-xs text-secondary hover:text-secondary/80 mt-2 font-medium transition-colors"
+                    >
+                      <Phone className="w-3 h-3" />
+                      {c.phone}
+                    </a>
+                  </div>
+                </li>
               ))}
+            </ul>
+
+            <div className="mt-8 pt-6 border-t border-border/50">
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Walk in any weekday between <span className="text-foreground font-semibold">9 AM – 5 PM</span>, or call ahead to schedule a guided visit.
+              </p>
             </div>
           </div>
         </div>
