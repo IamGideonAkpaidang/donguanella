@@ -91,10 +91,9 @@ const Footer = () => (
       </div>
       <div className="border-t border-primary-foreground/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-primary-foreground/30">
         <span>© {new Date().getFullYear()} Don Guannella Rehabilitation Centres. All rights reserved.</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-primary-foreground/60 transition-colors">Terms of Service</a>
-        </div>
+        <Link to="/contact" className="hover:text-primary-foreground/60 transition-colors">
+          Contact
+        </Link>
       </div>
     </div>
   </footer>
