@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FinalCTA = () => (
   <section className="section-padding bg-gradient-primary text-primary-foreground relative overflow-hidden">
