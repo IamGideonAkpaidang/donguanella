@@ -7,9 +7,10 @@ import { Mail, Phone, MapPin, Send, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const centres = [
-  { name: "Lagos", coords: "6.5244,3.3792" },
-  { name: "Abuja", coords: "9.0579,7.4951" },
-  { name: "Owerri", coords: "5.4836,7.0333" },
+  { name: "Abuja — Head Office", address: "House 52, Sector F, F.H.A Lugbe, FCT", phone: "+234 816 477 6544" },
+  { name: "Owerri Centre", address: "Plot D7 141/146, Industrial Layout, Imo State", phone: "+234 812 385 3326" },
+  { name: "Ibadan Centre", address: "Olukitbi Village, Moniya, Akinyele L.G.A, Oyo State", phone: "+234 708 433 8715" },
+  { name: "Lagos Centre", address: "Lagos State, Nigeria", phone: "+234 816 477 6544" },
 ];
 
 const ContactSection = () => {
