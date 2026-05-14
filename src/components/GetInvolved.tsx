@@ -9,6 +9,7 @@ const ways = [
     description: "Your financial support provides therapy, education, and care for children in need.",
     cta: "Give Today",
     accent: "primary",
+    href: "/get-involved",
   },
   {
     icon: Users,
@@ -16,6 +17,7 @@ const ways = [
     description: "Share your time and skills to make a direct impact in a child's life.",
     cta: "Join Us",
     accent: "accent",
+    href: "/contact",
   },
   {
     icon: Handshake,
@@ -23,6 +25,7 @@ const ways = [
     description: "Collaborate with us as an organization to expand our reach and deepen our impact.",
     cta: "Get in Touch",
     accent: "secondary",
+    href: "/contact",
   },
 ];
 
