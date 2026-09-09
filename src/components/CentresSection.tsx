@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const centres = [
   { name: "Abuja Centre", location: "Lugbe, FCT", region: "Head Office", established: "2003" },
   { name: "Owerri Centre", location: "Owerri, Imo State", region: "South-East", established: "2016" },
-  { name: "Lagos Centre", location: "Lagos State", region: "South-West", established: "1998" },
   { name: "Ibadan Centre", location: "Moniya, Oyo State", region: "South-West", established: "2019" },
 ];
 
@@ -20,7 +19,7 @@ const CentresSection = () => (
           Locations Across <span className="text-gradient-gold">Nigeria</span>
         </h2>
         <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-          Four communities. One mission. Visit any of our rehabilitation centres serving children and young persons with disabilities.
+          Three communities. One mission. Visit any of our rehabilitation centres serving children and young persons with disabilities.
         </p>
       </div>
 

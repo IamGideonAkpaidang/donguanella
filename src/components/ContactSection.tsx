@@ -10,7 +10,6 @@ const centres = [
   { name: "Abuja — Head Office", address: "House 52, Sector F, F.H.A Lugbe, FCT", phone: "+234 816 477 6544" },
   { name: "Owerri Centre", address: "Plot D7 141/146, Industrial Layout, Imo State", phone: "+234 812 385 3326" },
   { name: "Ibadan Centre", address: "Olukitbi Village, Moniya, Akinyele L.G.A, Oyo State", phone: "+234 708 433 8715" },
-  { name: "Lagos Centre", address: "Lagos State, Nigeria", phone: "+234 816 477 6544" },
 ];
 
 const ContactSection = () => {
@@ -146,7 +145,7 @@ const ContactSection = () => {
                 Visit a Centre
               </h3>
               <span className="text-[10px] uppercase tracking-[0.18em] text-secondary/80 font-semibold">
-                4 Locations
+                3 Locations
               </span>
             </div>
 
