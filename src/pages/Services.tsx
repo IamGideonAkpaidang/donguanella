@@ -2,211 +2,169 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  Heart, GraduationCap, Sprout, Brain, Stethoscope,
-  Target, Shield, Lightbulb, Smile, Users, Ear, ArrowRight,
-  Activity, Home, HandHeart, Baby, UserRound
+  Activity, ArrowRight, Baby, Brain, Church, Ear, GraduationCap,
+  HandHeart, HeartHandshake, Home, Megaphone, Presentation,
+  Sprout, Stethoscope, UserRound, Users
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import img1 from "@/assets/gallery/img1.jpg";
+import img25 from "@/assets/gallery/img25.jpg";
+import img44 from "@/assets/gallery/img44.jpg";
+import img51 from "@/assets/gallery/img51.jpg";
 
 const childrenServices = [
-  { icon: Stethoscope, title: "Rehabilitation & Therapy", desc: "Comprehensive physiotherapy and rehabilitation programs tailored to each child's needs." },
-  { icon: GraduationCap, title: "Special Education", desc: "Specialized educational programs designed for children with various learning disabilities." },
-  { icon: Sprout, title: "Vocational Training", desc: "Agricultural activities including poultry, fishery, piggery, bakery, garri production, and crop farming as occupational therapy." },
-  { icon: Brain, title: "Occupational Therapy", desc: "Developing independence through practical daily living skills and activities." },
-  { icon: Ear, title: "Speech Therapy", desc: "Specialized speech and language therapy to improve communication abilities." },
-  { icon: Activity, title: "Day-Care & Boarding", desc: "Both boarding and day-care rehabilitative assistance programs for flexible care." },
+  { icon: Stethoscope, title: "Rehabilitation & Therapy", desc: "Comprehensive physiotherapy and rehabilitation programmes tailored to each child's needs." },
+  { icon: GraduationCap, title: "Special Education", desc: "Specialised educational programmes designed for children with diverse learning needs." },
+  { icon: Sprout, title: "Vocational Training", desc: "Practical agricultural and livelihood activities that build confidence, skills and independence." },
+  { icon: Brain, title: "Occupational Therapy", desc: "Developing independence through practical daily-living skills and guided activities." },
+  { icon: Ear, title: "Speech Therapy", desc: "Specialised speech and language therapy that supports clearer communication." },
+  { icon: Activity, title: "Day-Care & Boarding", desc: "Flexible day-care and residential rehabilitative assistance in a safe, caring environment." },
 ];
 
 const elderlyServices = [
-  { icon: Home, title: "Residential Care & Shelter", desc: "A safe, dignified home for elderly persons in need — providing comfort, security, and round-the-clock attentive care." },
-  { icon: HandHeart, title: "Spiritual & Pastoral Care", desc: "Compassionate pastoral accompaniment, prayer, and counselling that nurtures faith, peace, and dignity in their later years." },
+  { icon: Home, title: "Residential Care & Shelter", desc: "A safe, dignified home offering comfort, security and attentive care to elderly persons in need." },
+  { icon: HandHeart, title: "Spiritual & Pastoral Care", desc: "Pastoral accompaniment, prayer and counselling that nurture faith, peace and dignity in later life." },
 ];
 
-const categories = [
-  { title: "Down Syndrome", desc: "Comprehensive support and development programs for children with Down syndrome." },
-  { title: "Cerebral Palsy", desc: "Specialized physiotherapy and motor skills development for cerebral palsy." },
-  { title: "Autism Spectrum", desc: "Tailored behavioural and social skills programs for autistic children." },
-  { title: "Learning Disabilities", desc: "Structured educational support for various learning disabilities." },
-  { title: "Intellectual Disabilities", desc: "Cognitive development and life skills training programs." },
-];
-
-const goals = [
-  { icon: Heart, text: "Offer care and rehabilitation for persons with disability" },
-  { icon: Shield, text: "Guarantee respect for their human dignity" },
-  { icon: Lightbulb, text: "Develop every special child's potential" },
-  { icon: Smile, text: "Nurture a life-long love for the disabled children" },
-  { icon: Sprout, text: "Create an exciting environment" },
-  { icon: Target, text: "Encourage domestic independent thinking" },
-  { icon: GraduationCap, text: "Prepare every child to make a difference" },
-  { icon: Users, text: "Ensure that everyone's voice and opportunity is heard" },
+const majorServices = [
+  {
+    id: "priest-and-religious",
+    icon: Church,
+    label: "Faith in service",
+    title: "Priest and Religious",
+    description: "Our priests and religious bring the spirit and charism of the Servants of Charity into compassionate ministry, walking alongside the people entrusted to our care.",
+    points: ["Pastoral presence and sacramental support", "Spiritual accompaniment and counselling", "Community ministry rooted in compassion"],
+    image: img51,
+    imageAlt: "Priests and religious gathered in fellowship",
+  },
+  {
+    id: "advocacy-and-project",
+    icon: Megaphone,
+    label: "Dignity in action",
+    title: "Advocacy and Project",
+    description: "We champion the rights, dignity and inclusion of persons with disabilities and other vulnerable people through awareness, partnerships and practical community projects.",
+    points: ["Disability-rights awareness and inclusion", "Community outreach and stakeholder engagement", "Projects that expand care and opportunity"],
+    image: img44,
+    imageAlt: "Advocates raising signs for disability rights and inclusive education",
+  },
+  {
+    id: "trainings-and-conferences",
+    icon: Presentation,
+    label: "Knowledge that transforms",
+    title: "Trainings and Conferences",
+    description: "We equip caregivers, families, educators, religious and professionals with practical knowledge for effective, person-centred care and inclusive support.",
+    points: ["Certificate courses for caregivers", "Workshops for families and professionals", "Conferences, seminars and shared learning"],
+    image: img25,
+    imageAlt: "Facilitators speaking during a training programme",
+  },
 ];
 
 const Services = () => (
   <div className="min-h-screen">
     <Navbar />
 
-    {/* Hero */}
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-primary overflow-hidden">
-      <div className="absolute bottom-1/4 left-[10%] w-80 h-80 rounded-full bg-secondary/10 blur-[120px]" />
-      <div className="container mx-auto px-6 relative">
-        <div className="max-w-3xl">
+    <section className="relative overflow-hidden bg-gradient-primary pb-20 pt-32 md:pb-28 md:pt-40">
+      <div className="container relative mx-auto px-6">
+        <div className="max-w-4xl">
           <span className="label-style text-secondary/80">What We Do</span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-4 tracking-tight leading-[1.05]">
-            Our <span className="text-gradient-gold">Services</span>
+          <h1 className="mt-4 text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl">
+            Service shaped by <span className="text-gradient-gold">dignity and love</span>
           </h1>
-          <p className="text-lg text-primary-foreground/70 mt-6 leading-relaxed max-w-2xl">
-            We use a wide range of styles and resources to excite, motivate and rehabilitate children with special needs aged 9–25 to succeed and thrive.
-          </p>
-        </div>
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
-    </section>
-
-    {/* Apostolate Intro */}
-    <section className="section-padding bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[120px]" />
-      <div className="container mx-auto px-6 relative">
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="label-style">Our Apostolate</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 tracking-tight">
-            Two Pillars of <span className="text-gradient-gold">Compassionate Care</span>
-          </h2>
-          <p className="text-muted-foreground mt-6 leading-[1.8]">
-            Our apostolate extends beyond children with special needs. We are equally committed to walking with the elderly — restoring dignity at every stage of life.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/75">
+            Our work is expressed through four major areas: Apostolate, Priest and Religious, Advocacy and Project, and Trainings and Conferences.
           </p>
         </div>
       </div>
     </section>
 
-    {/* Services to Children */}
-    <section className="pb-20 md:pb-28 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 relative">
-        <div className="flex items-center gap-3 mb-10 max-w-5xl mx-auto">
-          <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-            <Baby className="w-6 h-6 text-primary" />
+    <section id="apostolate" className="scroll-mt-24 bg-background py-20 md:py-28">
+      <div className="container mx-auto px-6">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="overflow-hidden rounded-2xl">
+            <img src={img1} alt="Caregiver supporting children at a rehabilitation centre" className="aspect-[4/3] h-full w-full object-cover" />
           </div>
           <div>
-            <span className="label-style">Pillar I</span>
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground tracking-tight">Services to the Children</h3>
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+              <HeartHandshake className="h-6 w-6 text-primary" />
+            </div>
+            <span className="label-style">Compassionate care</span>
+            <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">Apostolate</h2>
+            <p className="mt-5 leading-[1.8] text-muted-foreground">
+              Our Apostolate restores dignity at every stage of life through holistic services for children with special needs and compassionate care for elderly persons.
+            </p>
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {childrenServices.map((s, i) => (
-            <div
-              key={s.title}
-              className="group bg-card rounded-3xl p-8 border border-border/50 hover-lift"
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                <s.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3 tracking-tight">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-[1.8]">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
 
-    {/* Services to Elderly */}
-    <section className="pb-20 md:pb-28 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-secondary/5 blur-[120px]" />
-      <div className="container mx-auto px-6 relative">
-        <div className="flex items-center gap-3 mb-10 max-w-5xl mx-auto">
-          <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
-            <UserRound className="w-6 h-6 text-secondary" />
+        <div className="mx-auto mt-16 max-w-6xl">
+          <div className="mb-8 flex items-center gap-4">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10"><Baby className="h-5 w-5 text-primary" /></div>
+            <div><span className="label-style">Apostolate I</span><h3 className="text-2xl font-bold text-foreground">Services to Children</h3></div>
           </div>
-          <div>
-            <span className="label-style">Pillar II</span>
-            <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground tracking-tight">Services to the Elderly</h3>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {childrenServices.map((service) => (
+              <article key={service.title} className="group rounded-2xl border border-border/50 bg-card p-7 hover-lift">
+                <service.icon className="mb-5 h-6 w-6 text-primary" />
+                <h4 className="text-lg font-bold text-card-foreground">{service.title}</h4>
+                <p className="mt-3 text-sm leading-[1.8] text-muted-foreground">{service.desc}</p>
+              </article>
+            ))}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {elderlyServices.map((s, i) => (
-            <div
-              key={s.title}
-              className="group bg-card rounded-3xl p-8 border border-border/50 hover-lift"
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
-              <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                <s.icon className="w-6 h-6 text-secondary" />
-              </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3 tracking-tight">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-[1.8]">{s.desc}</p>
-            </div>
-          ))}
+
+        <div className="mx-auto mt-14 max-w-6xl">
+          <div className="mb-8 flex items-center gap-4">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary/15"><UserRound className="h-5 w-5 text-secondary" /></div>
+            <div><span className="label-style">Apostolate II</span><h3 className="text-2xl font-bold text-foreground">Services to the Elderly</h3></div>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            {elderlyServices.map((service) => (
+              <article key={service.title} className="group rounded-2xl border border-border/50 bg-card p-7 hover-lift">
+                <service.icon className="mb-5 h-6 w-6 text-secondary" />
+                <h4 className="text-lg font-bold text-card-foreground">{service.title}</h4>
+                <p className="mt-3 text-sm leading-[1.8] text-muted-foreground">{service.desc}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
-    {/* Categories */}
-    <section className="section-padding bg-gradient-warm relative overflow-hidden">
-      <div className="container mx-auto px-6 relative">
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="label-style">Who We Serve</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 tracking-tight">
-            Categories of <span className="text-gradient-gold">Children We Care For</span>
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {categories.map((c, i) => (
-            <div
-              key={c.title}
-              className={`group bg-card rounded-3xl p-8 border border-border/50 hover-lift ${i === categories.length - 1 ? "sm:col-span-2 lg:col-span-1" : ""}`}
-            >
-              <div className="w-3 h-3 rounded-full bg-secondary mb-6" />
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3 tracking-tight">{c.title}</h3>
-              <p className="text-muted-foreground text-sm leading-[1.8]">{c.desc}</p>
+    {majorServices.map((service, index) => (
+      <section key={service.id} id={service.id} className={`scroll-mt-24 py-20 md:py-28 ${index % 2 === 0 ? "bg-gradient-warm" : "bg-background"}`}>
+        <div className="container mx-auto px-6">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+              <img src={service.image} alt={service.imageAlt} className="aspect-[4/3] w-full rounded-2xl object-cover" loading="lazy" />
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Primary Goals */}
-    <section className="section-padding bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-secondary/5 blur-[120px]" />
-      <div className="container mx-auto px-6 relative">
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="label-style">Our Commitment</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 tracking-tight">
-            Primary <span className="text-gradient-gold">Goals</span>
-          </h2>
-          <p className="text-muted-foreground mt-6 leading-[1.8]">
-            We aim to give every child, whatever their background or circumstances, the support they need to be healthy, stay safe, enjoy and achieve through learning, be happy and loved in society.
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
-          {goals.map((g, i) => (
-            <div key={i} className="flex items-start gap-5 bg-card rounded-2xl p-6 border border-border/50 hover-lift">
-              <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <g.icon className="w-5 h-5 text-primary" />
-              </div>
-              <p className="text-foreground font-medium text-sm leading-relaxed pt-2">{g.text}</p>
+            <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><service.icon className="h-6 w-6 text-primary" /></div>
+              <span className="label-style">{service.label}</span>
+              <h2 className="mt-3 text-3xl font-bold text-foreground md:text-5xl">{service.title}</h2>
+              <p className="mt-5 leading-[1.8] text-muted-foreground">{service.description}</p>
+              <ul className="mt-7 space-y-3">
+                {service.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-sm font-medium text-foreground">
+                    <span className="mt-2 h-2 w-2 flex-none rounded-full bg-secondary" />{point}
+                  </li>
+                ))}
+              </ul>
+              {service.id === "trainings-and-conferences" && (
+                <Button asChild className="mt-8 rounded-full px-7"><Link to="/courses">Explore Our Courses <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+              )}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    ))}
 
-    {/* CTA */}
-    <section className="py-20 bg-gradient-primary relative overflow-hidden">
-      <div className="container mx-auto px-6 relative text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground tracking-tight">
-          Want to support our mission?
-        </h2>
-        <p className="text-primary-foreground/70 mt-4 max-w-xl mx-auto">
-          Your contributions help us provide essential services to children who need them most.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-          <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-10 py-7 font-semibold shadow-lg group">
-            <Link to="/get-involved">
-              Get Involved <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="bg-transparent border-secondary/40 text-primary-foreground hover:bg-secondary hover:text-secondary-foreground hover:border-secondary rounded-full px-10 py-7 transition-all duration-500">
-            <Link to="/contact">Contact Us</Link>
-          </Button>
+    <section className="bg-gradient-primary py-20">
+      <div className="container mx-auto px-6 text-center">
+        <Users className="mx-auto h-9 w-9 text-secondary" />
+        <h2 className="mt-5 text-3xl font-bold text-primary-foreground md:text-4xl">Partner with our mission</h2>
+        <p className="mx-auto mt-4 max-w-xl text-primary-foreground/70">Join us in restoring dignity and creating opportunities for the people and communities we serve.</p>
+        <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+          <Button asChild size="lg" className="rounded-full bg-secondary px-9 text-secondary-foreground hover:bg-secondary/90"><Link to="/get-involved">Get Involved <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+          <Button asChild size="lg" variant="outline" className="rounded-full border-secondary/50 bg-transparent px-9 text-primary-foreground hover:border-secondary hover:bg-secondary hover:text-secondary-foreground"><Link to="/contact">Contact Us</Link></Button>
         </div>
       </div>
     </section>
