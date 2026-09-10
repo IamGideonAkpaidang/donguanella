@@ -69,7 +69,6 @@ import img63 from "@/assets/gallery/img63.jpg";
 const categories = ["All", "Centres", "Children", "Activities", "Events"] as const;
 
 const galleryItems = [
-  { src: img1, title: "Moments of Care", category: "Children", desc: "Caregivers and children sharing a moment at our rehabilitation centre." },
   { src: img2, title: "Daily Life", category: "Activities", desc: "Everyday activities that nurture growth and dignity." },
   { src: img3, title: "Together in Learning", category: "Activities", desc: "Engaged learning sessions tailored to each child's needs." },
   { src: img4, title: "Joyful Smiles", category: "Children", desc: "Bright smiles that capture the spirit of our community." },
