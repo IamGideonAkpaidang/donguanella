@@ -149,7 +149,7 @@ const Services = () => (
                 ))}
               </ul>
               {service.id === "trainings-and-conferences" && (
-                <Button asChild className="mt-8 rounded-full px-7"><Link to="/courses">Explore Our Courses <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+                <Button asChild className="mt-8 rounded-full px-7"><Link to="/lms/courses">Explore Our Courses <ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
               )}
             </div>
           </div>
