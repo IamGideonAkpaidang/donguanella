@@ -1,37 +1,42 @@
-import { Heart, BookOpen, Wrench, Hand } from "lucide-react";
+import { ArrowUpRight, Church, Megaphone, Presentation, HeartHandshake } from "lucide-react";
+import { Link } from "react-router-dom";
+import img1 from "@/assets/gallery/img1.jpg";
+import img25 from "@/assets/gallery/img25.jpg";
+import img44 from "@/assets/gallery/img44.jpg";
+import img51 from "@/assets/gallery/img51.jpg";
 
 const services = [
   {
-    icon: Heart,
-    title: "Rehabilitation & Therapy",
-    description: "Physiotherapy, speech therapy, and behavioural support tailored to each child's unique needs.",
-    gradient: "from-primary/10 to-accent/10",
-    iconBg: "bg-primary/10",
-    iconColor: "text-primary",
+    icon: HeartHandshake,
+    title: "Apostolate",
+    description: "Holistic care, rehabilitation, education and dignified support for children with special needs and elderly persons.",
+    image: img1,
+    href: "/services#apostolate",
+    eyebrow: "Care & rehabilitation",
   },
   {
-    icon: BookOpen,
-    title: "Special Education",
-    description: "Adaptive curricula designed to unlock every child's learning potential in a supportive environment.",
-    gradient: "from-secondary/10 to-gold-light",
-    iconBg: "bg-secondary/10",
-    iconColor: "text-secondary",
+    icon: Church,
+    title: "Priest and Religious",
+    description: "Pastoral presence, spiritual accompaniment and compassionate ministry rooted in the charism of the Servants of Charity.",
+    image: img51,
+    href: "/services#priest-and-religious",
+    eyebrow: "Pastoral ministry",
   },
   {
-    icon: Wrench,
-    title: "Vocational Training",
-    description: "Practical skills training to empower young persons toward independence and meaningful contribution.",
-    gradient: "from-accent/10 to-primary/5",
-    iconBg: "bg-accent/10",
-    iconColor: "text-accent",
+    icon: Megaphone,
+    title: "Advocacy and Project",
+    description: "Inclusive projects and public advocacy that advance dignity, opportunity and participation for vulnerable people.",
+    image: img44,
+    href: "/services#advocacy-and-project",
+    eyebrow: "Inclusion & outreach",
   },
   {
-    icon: Hand,
-    title: "Occupational Therapy",
-    description: "Building daily living skills and motor development through guided, compassionate practice.",
-    gradient: "from-gold-light to-warm",
-    iconBg: "bg-gold-light",
-    iconColor: "text-secondary",
+    icon: Presentation,
+    title: "Trainings and Conferences",
+    description: "Practical courses, workshops and conferences that strengthen caregivers, families, educators and professionals.",
+    image: img25,
+    href: "/services#trainings-and-conferences",
+    eyebrow: "Knowledge & capacity",
   },
 ];
 
@@ -40,34 +45,47 @@ const ServicesSection = () => (
     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
 
     <div className="container mx-auto px-6 relative">
-      <div className="text-center max-w-2xl mx-auto mb-20">
+      <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
         <span className="label-style">What We Do</span>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 tracking-tight">
-          Our Services
+          Four Ways We Serve
         </h2>
+        <p className="text-muted-foreground mt-5 leading-relaxed">
+          Our mission brings together compassionate care, spiritual service, advocacy and knowledge-sharing.
+        </p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map((s, i) => (
-          <div
-            key={s.title}
-            className="group relative bg-card rounded-3xl p-8 border border-border/50 hover-lift cursor-default"
+      <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        {services.map((service, i) => (
+          <Link
+            to={service.href}
+            key={service.title}
+            aria-label={`Explore ${service.title}`}
+            className="group relative min-h-[360px] overflow-hidden rounded-2xl border border-border/50 hover-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             style={{ animationDelay: `${i * 100}ms` }}
           >
-            {/* Hover gradient overlay */}
-            <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${s.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-            
-            <div className="relative">
-              <div className={`w-14 h-14 rounded-2xl ${s.iconBg} flex items-center justify-center mb-7 group-hover:scale-110 transition-transform duration-500`}>
-                <s.icon className={`w-6 h-6 ${s.iconColor}`} />
+            <img
+              src={service.image}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/55 to-foreground/10" />
+            <div className="absolute inset-x-0 bottom-0 p-7 md:p-9">
+              <div className="mb-5 flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+                  <service.icon className="h-5 w-5" />
+                </div>
+                <ArrowUpRight className="h-6 w-6 text-primary-foreground transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-card-foreground mb-3 tracking-tight">
-                {s.title}
+              <span className="text-xs font-semibold uppercase text-secondary">{service.eyebrow}</span>
+              <h3 className="mt-2 text-2xl md:text-3xl font-bold text-primary-foreground">
+                {service.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-[1.8]">
-                {s.description}
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-primary-foreground/80">
+                {service.description}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
