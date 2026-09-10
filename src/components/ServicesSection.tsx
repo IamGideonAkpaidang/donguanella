@@ -70,10 +70,7 @@ const ServicesSection = () => (
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/55 to-foreground/10" />
-            <div
-            key={s.title}
-              className="absolute inset-x-0 bottom-0 p-7 md:p-9"
-          >
+            <div className="absolute inset-x-0 bottom-0 p-7 md:p-9">
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
                   <service.icon className="h-5 w-5" />
